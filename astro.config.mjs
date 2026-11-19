@@ -23,6 +23,10 @@ export default defineConfig({
 				baseUrl: 'https://github.com/Arborist-sh/arborist.sh/edit/main/',
 			},
 			lastUpdated: true,
+			head: [
+				{ tag: 'meta', attrs: { property: 'og:image', content: 'https://arborist.sh/og.png' } },
+				{ tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
+			],
 			sidebar: [
 				{
 					label: 'Getting started',

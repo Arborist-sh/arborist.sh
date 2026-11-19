@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Link-preview image for arborist.sh, in the landing page's Sakura editorial style. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f8f6ef"/><stop offset="1" stop-color="#f0ece0"/></linearGradient>
+    <path id="petal" d="M0 0 C -7 -5 -8 -15 -3.5 -20 C -2 -22 -0.8 -19 0 -20.5 C 0.8 -19 2 -22 3.5 -20 C 8 -15 7 -5 0 0 Z"/>
+    <g id="blossom">
+      <g fill="#ffc2d6" stroke="#f29ab8" stroke-width="1">
+        <use href="#petal"/><use href="#petal" transform="rotate(72)"/><use href="#petal" transform="rotate(144)"/><use href="#petal" transform="rotate(216)"/><use href="#petal" transform="rotate(288)"/>
+      </g>
+      <circle r="2.6" fill="#f6c463"/>
+    </g>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <use href="#blossom" transform="translate(1040,96) scale(1.9) rotate(18)" opacity="0.9"/>
+  <use href="#blossom" transform="translate(900,210) scale(1.1) rotate(-34)" opacity="0.7"/>
+  <use href="#blossom" transform="translate(1120,300) scale(1.4) rotate(52)" opacity="0.8"/>
+  <use href="#blossom" transform="translate(760,80) scale(0.8) rotate(8)" opacity="0.55"/>
+  <use href="#blossom" transform="translate(1010,470) scale(0.9) rotate(-12)" opacity="0.5"/>
+
+  <g transform="translate(84,90) scale(1.5)" fill="#15613a">
+    <line x1="40" y1="92" x2="40" y2="33" stroke="#15613a" stroke-width="7" stroke-linecap="round"/>
+    <path d="M40 58 C40 45 58 45 70 40" fill="none" stroke="#15613a" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="40" cy="58" r="4.5"/>
+    <circle cx="72" cy="40" r="7.5"/>
+    <path d="M40 35 Q29 19 50 12 Q49 31 40 35 Z"/>
+  </g>
+
+  <text x="86" y="372" font-family="Iowan Old Style, Georgia, serif" font-size="112" fill="#1c1c1e" letter-spacing="-3">One image.</text>
+  <text x="86" y="470" font-family="Iowan Old Style, Georgia, serif" font-size="78" fill="#1c1c1e" letter-spacing="-1.5">Your Mac <tspan font-style="italic" fill="#15613a">and</tspan> your CI.</text>
+
+  <text x="88" y="556" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="26" fill="#5a574f">Graft bakes one golden macOS VM image for your dev box and your CI runners. Open source.</text>
+  <rect x="88" y="578" width="286" height="30" rx="15" fill="none" stroke="#15613a" stroke-width="1.5"/>
+  <text x="104" y="599" font-family="SF Mono, Menlo, monospace" font-size="15" fill="#15613a" letter-spacing="1">arborist.sh · v0.5.6 · Sakura</text>
+</svg>

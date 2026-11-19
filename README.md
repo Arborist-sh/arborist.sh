@@ -9,6 +9,7 @@ A [Best Coast Software LLC](https://bestcoast.dev) project. The website for [Gra
 - **Hosting** — static build in `dist/`, served as an assets-only Cloudflare Worker
   (`wrangler.jsonc`) on the `arborist.sh` and `www.arborist.sh` custom domains.
 - `design/mocks/` — the three throwaway direction mocks the landing page was picked from.
+- `social/og.svg` → `public/og.png` — the link-preview image (`rsvg-convert -w 1200 -h 630 -o public/og.png social/og.svg`). bestcoast.dev copies it for its Work card.
 
 ## Develop
 
