@@ -22,13 +22,22 @@ const description =
 		<meta property="og:title" content="Graft" />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content="https://arborist.sh/" />
-		<meta name="theme-color" content="#f0ece0" />
+		<meta name="author" content="Best Coast Software LLC" />
+		<meta name="theme-color" content="#f0ece0" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#0f1512" media="(prefers-color-scheme: dark)" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"
 			rel="stylesheet"
 		/>
+		<script is:inline>
+			// Shares Starlight's key so the docs and the landing page agree. 'auto' or unset = system.
+			try {
+				const t = localStorage.getItem('starlight-theme');
+				if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+			} catch {}
+		</script>
 	</head>
 	<body>
 		<svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -64,6 +73,10 @@ const description =
 					<a href="/docs/getting-started/">Docs</a>
 					<a href="/docs/desktop-app/">Desktop app</a>
 					<a href="https://github.com/Arborist-sh/graft">GitHub</a>
+					<button class="theme" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+						<svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"></circle><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="12" y1="2.5" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="21.5"></line><line x1="2.5" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="21.5" y2="12"></line><line x1="5.3" y1="5.3" x2="7" y2="7"></line><line x1="17" y1="17" x2="18.7" y2="18.7"></line><line x1="5.3" y1="18.7" x2="7" y2="17"></line><line x1="17" y1="7" x2="18.7" y2="5.3"></line></g></svg>
+						<svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"></path></svg>
+					</button>
 				</span>
 			</nav>
 
@@ -102,11 +115,11 @@ const description =
 						aria-label="A .graft seed file grows one golden sapling image. The image feeds a dev box via graft nest and ephemeral CI runners via graft arborist tend."
 					>
 						<defs>
-							<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 1 L10 5 L0 9 Z" fill="#15613a"></path></marker>
-							<marker id="ahs" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 L10 5 L0 9 Z" fill="#5a574f"></path></marker>
+							<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 1 L10 5 L0 9 Z" fill="var(--green)"></path></marker>
+							<marker id="ahs" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 L10 5 L0 9 Z" fill="var(--muted)"></path></marker>
 						</defs>
 
-						<g class="label" font-size="13" fill="#5a574f" letter-spacing=".08em">
+						<g class="label" font-size="13" fill="var(--muted)" letter-spacing=".08em">
 							<text x="30" y="150">01 · SEED</text>
 							<text x="300" y="150">02 · SAPLING</text>
 							<text x="760" y="40">03 · USE IT TWICE</text>
@@ -114,68 +127,68 @@ const description =
 
 						<!-- seed file -->
 						<g>
-							<path d="M30 170 h88 l32 32 v118 a6 6 0 0 1 -6 6 h-114 a6 6 0 0 1 -6 -6 v-144 a6 6 0 0 1 6 -6 z" fill="#fbfaf5" stroke="#1c1c1e" stroke-width="2"></path>
-							<path d="M118 170 v32 h32" fill="none" stroke="#1c1c1e" stroke-width="2"></path>
-							<g stroke="#15613a" stroke-width="3" stroke-linecap="round">
+							<path d="M30 170 h88 l32 32 v118 a6 6 0 0 1 -6 6 h-114 a6 6 0 0 1 -6 -6 v-144 a6 6 0 0 1 6 -6 z" fill="var(--card)" stroke="var(--ink)" stroke-width="2"></path>
+							<path d="M118 170 v32 h32" fill="none" stroke="var(--ink)" stroke-width="2"></path>
+							<g stroke="var(--green)" stroke-width="3" stroke-linecap="round">
 								<line x1="46" y1="232" x2="112" y2="232"></line>
 								<line x1="60" y1="256" x2="130" y2="256"></line>
 								<line x1="60" y1="280" x2="102" y2="280"></line>
 							</g>
-							<text class="mono" x="24" y="352" font-size="16" fill="#1c1c1e" font-weight="500">.graft</text>
-							<text class="mono" x="24" y="374" font-size="12.5" fill="#5a574f">declarative recipe</text>
+							<text class="mono" x="24" y="352" font-size="16" fill="var(--ink)" font-weight="500">.graft</text>
+							<text class="mono" x="24" y="374" font-size="12.5" fill="var(--muted)">declarative recipe</text>
 						</g>
 
 						<!-- seed -> sapling -->
-						<line x1="166" y1="260" x2="290" y2="260" stroke="#15613a" stroke-width="2.5" marker-end="url(#ah)"></line>
-						<text class="mono" x="228" y="246" font-size="13" fill="#15613a" text-anchor="middle">sapling grow</text>
+						<line x1="166" y1="260" x2="290" y2="260" stroke="var(--green)" stroke-width="2.5" marker-end="url(#ah)"></line>
+						<text class="mono" x="228" y="246" font-size="13" fill="var(--green)" text-anchor="middle">sapling grow</text>
 
 						<!-- sapling node -->
-						<rect x="300" y="180" width="320" height="160" rx="18" fill="#e3eee6" stroke="#15613a" stroke-width="3"></rect>
-						<g transform="translate(332 202) scale(.5)" color="#15613a" fill="none">
+						<rect x="300" y="180" width="320" height="160" rx="18" fill="var(--green-soft)" stroke="var(--green)" stroke-width="3"></rect>
+						<g transform="translate(332 202) scale(.5)" color="var(--green)" fill="none">
 							<line x1="40" y1="92" x2="40" y2="33" stroke="currentColor" stroke-width="7" stroke-linecap="round"></line>
 							<path d="M40 58 C40 45 58 45 70 40" stroke="currentColor" stroke-width="7" stroke-linecap="round"></path>
 							<circle cx="40" cy="58" r="4.5" fill="currentColor"></circle>
 							<circle cx="72" cy="40" r="7.5" fill="currentColor"></circle>
 							<path d="M40 35 Q29 19 50 12 Q49 31 40 35 Z" fill="currentColor"></path>
 						</g>
-						<text class="mono" x="460" y="236" font-size="19" fill="#1c1c1e" font-weight="500">one golden image</text>
-						<text class="mono" x="460" y="258" font-size="12.5" fill="#5a574f">(a Tart VM)</text>
-						<line x1="324" y1="280" x2="596" y2="280" stroke="#15613a" stroke-opacity=".3"></line>
-						<text class="mono" x="460" y="308" font-size="13.5" fill="#15613a" text-anchor="middle">xcode · node · pods · ccache</text>
+						<text class="mono" x="460" y="236" font-size="19" fill="var(--ink)" font-weight="500">one golden image</text>
+						<text class="mono" x="460" y="258" font-size="12.5" fill="var(--muted)">(a Tart VM)</text>
+						<line x1="324" y1="280" x2="596" y2="280" stroke="var(--green)" stroke-opacity=".3"></line>
+						<text class="mono" x="460" y="308" font-size="13.5" fill="var(--green)" text-anchor="middle">xcode · node · pods · ccache</text>
 
 						<!-- branches -->
-						<path d="M620 240 C700 240 700 130 800 130" fill="none" stroke="#15613a" stroke-width="2.5" marker-end="url(#ah)"></path>
-						<path d="M620 280 C700 280 700 400 800 400" fill="none" stroke="#15613a" stroke-width="2.5" marker-end="url(#ah)"></path>
+						<path d="M620 240 C700 240 700 130 800 130" fill="none" stroke="var(--green)" stroke-width="2.5" marker-end="url(#ah)"></path>
+						<path d="M620 280 C700 280 700 400 800 400" fill="none" stroke="var(--green)" stroke-width="2.5" marker-end="url(#ah)"></path>
 
 						<!-- laptop -->
 						<g transform="translate(820 76)">
-							<rect x="14" y="0" width="112" height="72" rx="6" fill="#fbfaf5" stroke="#1c1c1e" stroke-width="2"></rect>
-							<text class="mono" x="26" y="30" font-size="12" fill="#15613a">$ graft nest</text>
-							<text class="mono" x="26" y="50" font-size="12" fill="#5a574f">▍</text>
-							<path d="M0 78 h140 l-8 12 h-124 z" fill="#fbfaf5" stroke="#1c1c1e" stroke-width="2" stroke-linejoin="round"></path>
+							<rect x="14" y="0" width="112" height="72" rx="6" fill="var(--card)" stroke="var(--ink)" stroke-width="2"></rect>
+							<text class="mono" x="26" y="30" font-size="12" fill="var(--green)">$ graft nest</text>
+							<text class="mono" x="26" y="50" font-size="12" fill="var(--muted)">▍</text>
+							<path d="M0 78 h140 l-8 12 h-124 z" fill="var(--card)" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"></path>
 						</g>
-						<text class="mono" x="990" y="124" font-size="16" fill="#1c1c1e" font-weight="500">graft nest</text>
-						<text class="mono" x="990" y="146" font-size="12.5" fill="#5a574f">your dev box</text>
-						<text class="mono" x="990" y="166" font-size="12.5" fill="#5a574f">shell in, or open VS Code</text>
+						<text class="mono" x="990" y="124" font-size="16" fill="var(--ink)" font-weight="500">graft nest</text>
+						<text class="mono" x="990" y="146" font-size="12.5" fill="var(--muted)">your dev box</text>
+						<text class="mono" x="990" y="166" font-size="12.5" fill="var(--muted)">shell in, or open VS Code</text>
 
 						<!-- stacked VMs -->
 						<g transform="translate(820 330)">
-							<rect x="16" y="0" width="108" height="30" rx="5" fill="#fbfaf5" stroke="#1c1c1e" stroke-opacity=".35" stroke-width="2" stroke-dasharray="5 4"></rect>
-							<rect x="8" y="22" width="108" height="30" rx="5" fill="#fbfaf5" stroke="#1c1c1e" stroke-opacity=".6" stroke-width="2"></rect>
-							<rect x="0" y="44" width="108" height="30" rx="5" fill="#fbfaf5" stroke="#15613a" stroke-width="2.5"></rect>
-							<circle cx="14" cy="59" r="4" fill="#15613a"></circle>
-							<line x1="28" y1="59" x2="84" y2="59" stroke="#15613a" stroke-width="3" stroke-linecap="round"></line>
+							<rect x="16" y="0" width="108" height="30" rx="5" fill="var(--card)" stroke="var(--ink)" stroke-opacity=".35" stroke-width="2" stroke-dasharray="5 4"></rect>
+							<rect x="8" y="22" width="108" height="30" rx="5" fill="var(--card)" stroke="var(--ink)" stroke-opacity=".6" stroke-width="2"></rect>
+							<rect x="0" y="44" width="108" height="30" rx="5" fill="var(--card)" stroke="var(--green)" stroke-width="2.5"></rect>
+							<circle cx="14" cy="59" r="4" fill="var(--green)"></circle>
+							<line x1="28" y1="59" x2="84" y2="59" stroke="var(--green)" stroke-width="3" stroke-linecap="round"></line>
 						</g>
-						<text class="mono" x="990" y="376" font-size="16" fill="#1c1c1e" font-weight="500">graft arborist tend</text>
-						<text class="mono" x="990" y="398" font-size="12.5" fill="#5a574f">ephemeral runners</text>
-						<text class="mono" x="990" y="418" font-size="12.5" fill="#15613a">boot → one job → destroy</text>
+						<text class="mono" x="990" y="376" font-size="16" fill="var(--ink)" font-weight="500">graft arborist tend</text>
+						<text class="mono" x="990" y="398" font-size="12.5" fill="var(--muted)">ephemeral runners</text>
+						<text class="mono" x="990" y="418" font-size="12.5" fill="var(--green)">boot → one job → destroy</text>
 
 						<!-- APFS note -->
-						<path d="M460 340 V430" stroke="#5a574f" stroke-width="1.8" stroke-dasharray="5 5" fill="none" marker-end="url(#ahs)"></path>
+						<path d="M460 340 V430" stroke="var(--muted)" stroke-width="1.8" stroke-dasharray="5 5" fill="none" marker-end="url(#ahs)"></path>
 						<g transform="translate(300 438)">
-							<rect width="320" height="62" rx="8" fill="#fbfaf5" stroke="#5a574f" stroke-width="1.5" stroke-dasharray="5 4"></rect>
-							<text class="mono" x="160" y="27" font-size="14" fill="#1c1c1e" text-anchor="middle" font-weight="500">APFS copy-on-write</text>
-							<text class="mono" x="160" y="46" font-size="12.5" fill="#5a574f" text-anchor="middle">clones are free</text>
+							<rect width="320" height="62" rx="8" fill="var(--card)" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="5 4"></rect>
+							<text class="mono" x="160" y="27" font-size="14" fill="var(--ink)" text-anchor="middle" font-weight="500">APFS copy-on-write</text>
+							<text class="mono" x="160" y="46" font-size="12.5" fill="var(--muted)" text-anchor="middle">clones are free</text>
 						</g>
 					</svg>
 				</div>
@@ -233,29 +246,81 @@ gems: [fastlane]</pre>
 					<a href="/docs/getting-started/">Docs</a>
 					<a href="https://github.com/Arborist-sh/graft/releases">Releases</a>
 				</div>
-				<span>Made in Redondo Beach</span>
+				<span class="llc"><a href="https://bestcoast.dev">Best Coast Software LLC</a> · Redondo Beach, CA</span>
 			</footer>
 		</div>
+		<script is:inline>
+			document.querySelector('.theme')?.addEventListener('click', () => {
+				const root = document.documentElement;
+				const dark = root.dataset.theme === 'dark' || (!root.dataset.theme && matchMedia('(prefers-color-scheme: dark)').matches);
+				const next = dark ? 'light' : 'dark';
+				root.dataset.theme = next;
+				try { localStorage.setItem('starlight-theme', next); } catch {}
+			});
+		</script>
 	</body>
 </html>
 
 <style is:global>
 	:root {
+		color-scheme: light;
 		--cream: #f0ece0;
 		--paper: #f8f6ef;
+		--card: #fbfaf5;
 		--ink: #1c1c1e;
 		--muted: #5a574f;
 		--green: #15613a;
 		--green-soft: #e3eee6;
 		--rule: rgba(28, 28, 30, 0.18);
+		--install-bg: #1c1c1e;
+		--install-fg: #e8efe9;
+		--install-prompt: #6fbf8f;
+		--install-comment: #8a9890;
+		--blossom-opacity: 0.85;
 		--serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
 		--sans: -apple-system, BlinkMacSystemFont, 'Avenir Next', 'Segoe UI', Helvetica, Arial, sans-serif;
 		--mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+	}
+	/* Dark: same page at night. Deep green-black paper, light ink, brighter graft green. */
+	@media (prefers-color-scheme: dark) {
+		:root:not([data-theme='light']) {
+			color-scheme: dark;
+			--cream: #0f1512;
+			--paper: #141c17;
+			--card: #16201a;
+			--ink: #ecefe9;
+			--muted: #a9b7ad;
+			--green: #5cbf86;
+			--green-soft: #1b2d22;
+			--rule: rgba(236, 239, 233, 0.16);
+			--install-bg: #050807;
+			--install-fg: #dfe8e1;
+			--install-prompt: #5cbf86;
+			--install-comment: #6f7f75;
+			--blossom-opacity: 0.7;
+		}
+	}
+	:root[data-theme='dark'] {
+		color-scheme: dark;
+		--cream: #0f1512;
+		--paper: #141c17;
+		--card: #16201a;
+		--ink: #ecefe9;
+		--muted: #a9b7ad;
+		--green: #5cbf86;
+		--green-soft: #1b2d22;
+		--rule: rgba(236, 239, 233, 0.16);
+		--install-bg: #050807;
+		--install-fg: #dfe8e1;
+		--install-prompt: #5cbf86;
+		--install-comment: #6f7f75;
+		--blossom-opacity: 0.7;
 	}
 	* { box-sizing: border-box; }
 	html { background: var(--cream); }
 	body {
 		margin: 0;
+		transition: background-color 0.25s ease, color 0.25s ease;
 		color: var(--ink);
 		font: 18px/1.65 var(--sans);
 		background: linear-gradient(var(--paper), var(--cream) 70%);
@@ -269,7 +334,17 @@ gems: [fastlane]</pre>
 	nav { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; font-size: 15px; color: var(--muted); }
 	nav .name { font-family: var(--serif); font-size: 21px; color: var(--ink); letter-spacing: 0.01em; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
 	nav .navmark { width: 22px; height: 22px; color: var(--green); }
-	nav .links { display: flex; gap: 28px; }
+	nav .links { display: flex; gap: 28px; align-items: center; }
+	nav .theme { appearance: none; background: none; border: 1px solid var(--rule); border-radius: 99px; width: 34px; height: 34px; padding: 0; color: var(--muted); cursor: pointer; display: inline-grid; place-items: center; }
+	nav .theme:hover { color: var(--green); border-color: var(--green); }
+	nav .theme svg { width: 17px; height: 17px; grid-area: 1 / 1; }
+	nav .theme .moon { display: none; }
+	:root[data-theme='dark'] nav .theme .moon { display: block; }
+	:root[data-theme='dark'] nav .theme .sun { display: none; }
+	@media (prefers-color-scheme: dark) {
+		:root:not([data-theme='light']) nav .theme .moon { display: block; }
+		:root:not([data-theme='light']) nav .theme .sun { display: none; }
+	}
 
 	.hero { position: relative; padding: 64px 0 96px; }
 	.mark { width: 120px; height: 120px; color: var(--green); display: block; margin-bottom: 36px; }
@@ -278,18 +353,18 @@ gems: [fastlane]</pre>
 	h1 em { font-style: italic; color: var(--green); }
 	.lede { font-size: clamp(18px, 2vw, 22px); max-width: 34em; color: var(--muted); margin: 0 0 40px; }
 	.lede b { color: var(--ink); font-weight: 500; }
-	.install { margin: 0; max-width: 40em; background: var(--ink); color: #e8efe9; border-radius: 10px; padding: 18px 22px; font-family: var(--mono); font-size: 15px; line-height: 1.6; overflow-x: auto; white-space: pre; }
-	.install .p { color: #6fbf8f; user-select: none; }
-	.install .c { color: #8a9890; }
+	.install { margin: 0; max-width: 40em; background: var(--install-bg); color: var(--install-fg); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 22px; font-family: var(--mono); font-size: 15px; line-height: 1.6; overflow-x: auto; white-space: pre; }
+	.install .p { color: var(--install-prompt); user-select: none; }
+	.install .c { color: var(--install-comment); }
 	.small { font-size: 14px; color: var(--muted); margin: 14px 0 0; }
-	.blossom { position: absolute; pointer-events: none; opacity: 0.85; }
+	.blossom { position: absolute; pointer-events: none; opacity: var(--blossom-opacity); }
 	.blossom svg { display: block; width: 100%; height: 100%; }
 
 	section { padding: 88px 0; border-top: 1px solid var(--rule); }
 	.eyebrow { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--green); margin: 0 0 12px; }
 	h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 4vw, 46px); line-height: 1.12; letter-spacing: -0.01em; margin: 0 0 48px; max-width: 18em; }
 
-	.diagram { border: 1px solid var(--rule); border-radius: 14px; padding: 14px; overflow-x: auto; background: rgba(251, 250, 245, 0.6); }
+	.diagram { border: 1px solid var(--rule); border-radius: 14px; padding: 14px; overflow-x: auto; background: color-mix(in srgb, var(--card) 60%, transparent); }
 	.diagram svg { display: block; width: 100%; min-width: 760px; height: auto; }
 	.diagram text { font-family: var(--mono); }
 	.cap { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--muted); margin: 18px 0 0; }

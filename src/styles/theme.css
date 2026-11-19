@@ -4,7 +4,7 @@
 
 :root {
 	--graft-green: #15613a;
-	--graft-green-bright: #3fa36b;
+	--graft-green-bright: #5cbf86;
 	--graft-cream: #f0ece0;
 	--graft-blossom: #ffc2d6;
 	--graft-blossom-deep: #f29ab8;
@@ -12,7 +12,7 @@
 
 	/* Dark (default) */
 	--sl-color-accent-low: #10301f;
-	--sl-color-accent: #3fa36b;
+	--sl-color-accent: #5cbf86;
 	--sl-color-accent-high: #b7e3c6;
 	--sl-color-white: #f4f6f3;
 	--sl-color-gray-1: #e0e8e2;
@@ -44,7 +44,3 @@
 	--sl-color-black: #fbfaf5;
 }
 
-/* Logo mark picks up the accent in both themes */
-.site-title img {
-	color: var(--sl-color-accent);
-}

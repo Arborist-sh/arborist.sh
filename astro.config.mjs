@@ -9,7 +9,11 @@ export default defineConfig({
 			title: 'Graft',
 			description:
 				'One golden Tart VM image for your Mac dev box and your ephemeral CI runners.',
-			logo: { src: './src/assets/graft-mark.svg', alt: 'Graft' },
+			logo: {
+				light: './src/assets/graft-mark-light.svg',
+				dark: './src/assets/graft-mark-dark.svg',
+				alt: 'Graft',
+			},
 			favicon: '/favicon.svg',
 			customCss: ['./src/styles/theme.css'],
 			social: [

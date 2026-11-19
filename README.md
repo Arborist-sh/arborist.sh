@@ -1,6 +1,6 @@
 # arborist.sh
 
-The website for [Graft](https://github.com/Arborist-sh/graft): landing page + docs, served at
+A [Best Coast Software LLC](https://bestcoast.dev) project. The website for [Graft](https://github.com/Arborist-sh/graft): landing page + docs, served at
 [arborist.sh](https://arborist.sh).
 
 - **Landing page** — `src/pages/index.astro`. Plain Astro, fully custom, no docs chrome.
