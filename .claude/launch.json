@@ -1,0 +1,7 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "site", "runtimeExecutable": "npm", "runtimeArgs": ["run", "dev", "--", "--port", "4321"], "port": 4321 },
+    { "name": "mocks", "runtimeExecutable": "python3", "runtimeArgs": ["-m", "http.server", "8123", "-d", "design/mocks"], "port": 8123 }
+  ]
+}

@@ -1,0 +1,50 @@
+/* Graft "Sakura" theme for Starlight.
+   Palette lifted from Assets/header-*.svg in the graft repo:
+   graft green #15613a, cream #f0ece0, blossom pinks #ffc2d6 / #f29ab8, stamen #f6c463. */
+
+:root {
+	--graft-green: #15613a;
+	--graft-green-bright: #3fa36b;
+	--graft-cream: #f0ece0;
+	--graft-blossom: #ffc2d6;
+	--graft-blossom-deep: #f29ab8;
+	--graft-stamen: #f6c463;
+
+	/* Dark (default) */
+	--sl-color-accent-low: #10301f;
+	--sl-color-accent: #3fa36b;
+	--sl-color-accent-high: #b7e3c6;
+	--sl-color-white: #f4f6f3;
+	--sl-color-gray-1: #e0e8e2;
+	--sl-color-gray-2: #b5c3ba;
+	--sl-color-gray-3: #7f9388;
+	--sl-color-gray-4: #4a5e52;
+	--sl-color-gray-5: #223129;
+	--sl-color-gray-6: #16201a;
+	--sl-color-black: #0f1512;
+
+	--sl-font:
+		ui-sans-serif, system-ui, -apple-system, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	--sl-font-mono:
+		ui-monospace, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+}
+
+:root[data-theme='light'] {
+	--sl-color-accent-low: #d8f0e1;
+	--sl-color-accent: #15613a;
+	--sl-color-accent-high: #0b3a22;
+	--sl-color-white: #1c1c1e;
+	--sl-color-gray-1: #2f3a33;
+	--sl-color-gray-2: #4a5a50;
+	--sl-color-gray-3: #7a8a80;
+	--sl-color-gray-4: #b6c2ba;
+	--sl-color-gray-5: #dde4df;
+	--sl-color-gray-6: #f0ece0;
+	--sl-color-gray-7: #f8f6ef;
+	--sl-color-black: #fbfaf5;
+}
+
+/* Logo mark picks up the accent in both themes */
+.site-title img {
+	color: var(--sl-color-accent);
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "arborist-sh",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "arborist.sh", "custom_domain": true },
+    { "pattern": "www.arborist.sh", "custom_domain": true }
+  ]
+}

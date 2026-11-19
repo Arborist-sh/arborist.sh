@@ -1,0 +1,131 @@
+<!doctype html>
+<!-- Direction A: "Sakura editorial" — warm, botanical, well-set book page. Palette from README banner (green #15613a, cream #f0ece0, blossom #ffc2d6/#f29ab8, gold #f6c463, ink #1c1c1e); added lighter cream #f8f6ef and muted ink #5a574f. -->
+<!-- Fonts: Fraunces (display serif, Google Fonts) + system humanist sans stack for body; system mono only inside code. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graft — arborist.sh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f0ece0; --paper: #f8f6ef; --ink: #1c1c1e; --muted: #5a574f;
+    --green: #15613a; --rule: rgba(28,28,30,.18);
+    --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--cream); }
+  body { margin: 0; color: var(--ink); font: 18px/1.65 var(--sans); background: linear-gradient(var(--paper), var(--cream) 70%); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+  a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 4px; }
+  a:hover { color: var(--green); text-decoration-color: var(--green); }
+
+  nav { padding: 32px 0; display: flex; justify-content: space-between; align-items: baseline; font-size: 15px; color: var(--muted); }
+  nav .name { font-family: var(--serif); font-size: 20px; color: var(--ink); letter-spacing: .01em; }
+  nav .links { display: flex; gap: 28px; }
+
+  .hero { position: relative; padding: 72px 0 120px; }
+  .mark { width: 128px; height: 128px; color: var(--green); display: block; margin-bottom: 40px; }
+  .pill { display: inline-block; font-size: 13px; letter-spacing: .06em; padding: 4px 14px; border: 1px solid var(--green); color: var(--green); border-radius: 99px; margin-bottom: 28px; }
+  h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(42px, 7.2vw, 92px); line-height: 1.02; letter-spacing: -.02em; margin: 0 0 32px; max-width: 12.5em; font-variation-settings: "opsz" 144; }
+  h1 em { font-style: italic; color: var(--green); }
+  .lede { font-size: clamp(18px, 2vw, 22px); max-width: 34em; color: var(--muted); margin: 0 0 48px; }
+  .lede b { color: var(--ink); font-weight: 500; }
+  .install { font-family: var(--mono); font-size: 15px; padding: 14px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); max-width: 40em; overflow-x: auto; white-space: nowrap; color: var(--ink); }
+  .install span { color: var(--green); user-select: none; }
+  .small { font-size: 14px; color: var(--muted); margin: 14px 0 0; }
+  .blossom { position: absolute; pointer-events: none; opacity: .85; }
+  .blossom svg { display: block; width: 100%; height: 100%; }
+
+  section { padding: 96px 0; border-top: 1px solid var(--rule); }
+  .eyebrow { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--green); margin: 0 0 12px; }
+  h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 4vw, 46px); line-height: 1.12; letter-spacing: -.01em; margin: 0 0 64px; max-width: 18em; }
+  .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 48px; }
+  .col { border-top: 1px solid var(--ink); padding-top: 20px; }
+  .col h3 { margin: 0 0 14px; font-family: var(--mono); font-weight: 400; font-size: 16px; color: var(--green); }
+  .col p { margin: 0; font-size: 17px; color: var(--muted); }
+  .roadmap { margin-top: 72px; font-style: italic; font-family: var(--serif); color: var(--muted); font-size: 18px; }
+
+  footer { border-top: 1px solid var(--rule); padding: 36px 0 56px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; }
+  footer .l { display: flex; gap: 28px; flex-wrap: wrap; }
+
+  @media (max-width: 800px) {
+    .cols { grid-template-columns: 1fr; gap: 40px; }
+    .hero { padding: 40px 0 80px; }
+    .mark { width: 104px; height: 104px; margin-bottom: 28px; }
+    section { padding: 64px 0; }
+    nav .links { gap: 18px; }
+  }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <path id="petal" d="M0 0 C -7 -5 -8 -15 -3.5 -20 C -2 -22 -0.8 -19 0 -20.5 C 0.8 -19 2 -22 3.5 -20 C 8 -15 7 -5 0 0 Z"/>
+    <g id="blossom">
+      <g fill="#ffc2d6" stroke="#f29ab8" stroke-width="1">
+        <use href="#petal"/><use href="#petal" transform="rotate(72)"/><use href="#petal" transform="rotate(144)"/><use href="#petal" transform="rotate(216)"/><use href="#petal" transform="rotate(288)"/>
+      </g>
+      <circle r="2.6" fill="#f6c463"/>
+    </g>
+  </defs>
+</svg>
+
+<div class="wrap">
+  <nav>
+    <span class="name">Graft</span>
+    <span class="links"><a href="#">Docs</a><a href="#">Desktop app</a><a href="#">GitHub</a></span>
+  </nav>
+
+  <header class="hero">
+    <!-- sparse drifting blossoms -->
+    <span class="blossom" style="right:6%;top:40px;width:44px;height:44px;transform:rotate(18deg)"><svg viewBox="-24 -24 48 48"><use href="#blossom"/></svg></span>
+    <span class="blossom" style="right:19%;top:210px;width:26px;height:26px;transform:rotate(-34deg)"><svg viewBox="-24 -24 48 48"><use href="#blossom"/></svg></span>
+    <span class="blossom" style="right:3%;top:360px;width:34px;height:34px;transform:rotate(52deg)"><svg viewBox="-24 -24 48 48"><use href="#blossom"/></svg></span>
+    <span class="blossom" style="right:30%;top:90px;width:18px;height:18px;transform:rotate(8deg)"><svg viewBox="-24 -24 48 48"><use href="#blossom"/></svg></span>
+
+    <svg class="mark" viewBox="0 0 100 100" aria-label="Graft mark">
+      <line x1="40" y1="92" x2="40" y2="33" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <path d="M40 58 C40 45 58 45 70 40" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+      <circle cx="40" cy="58" r="4.5" fill="currentColor"/>
+      <circle cx="72" cy="40" r="7.5" fill="currentColor"/>
+      <path d="M40 35 Q29 19 50 12 Q49 31 40 35 Z" fill="currentColor"/>
+    </svg>
+    <div class="pill">v0.5.6 · Sakura</div>
+    <h1>One image. Your Mac <em>and</em> your CI.</h1>
+    <p class="lede">Graft bakes one golden macOS VM from a recipe, then uses that same image two ways: a dev box you shell into, and ephemeral GitHub Actions runners. <b>Works on my machine</b> stops being a thing. Open source, MIT, Apple Silicon.</p>
+    <div class="install"><span>$ </span>brew install cirruslabs/cli/tart &amp;&amp; brew install arborist-sh/tap/graft</div>
+    <p class="small">Prefer a window? <code style="font-family:var(--mono);font-size:13px">brew install --cask arborist-sh/tap/graft-app</code></p>
+  </header>
+
+  <section>
+    <p class="eyebrow">How it grows</p>
+    <h2>Bake the sapling once. Use it everywhere.</h2>
+    <div class="cols">
+      <div class="col">
+        <h3>graft sapling grow</h3>
+        <p>Builds the golden Tart image from a declarative <code style="font-family:var(--mono);font-size:15px">.graft</code> recipe, the seed. Xcode DerivedData, CocoaPods, node_modules and ccache are baked in once.</p>
+      </div>
+      <div class="col">
+        <h3>graft nest</h3>
+        <p>A dev box cloned from the sapling: shell in, or open it in VS Code over Remote-SSH. Codespaces for native macOS and iOS.</p>
+      </div>
+      <div class="col">
+        <h3>graft arborist tend</h3>
+        <p>Each runner boots fresh, registers as a JIT runner, runs exactly one job, and is destroyed. APFS copy-on-write clones make the baked caches free per runner.</p>
+      </div>
+    </div>
+    <p class="roadmap">A hosted fleet control plane is on the roadmap. For now, multi-host fleets run through Orchard.</p>
+  </section>
+
+  <footer>
+    <div class="l"><span>MIT licensed</span><a href="https://github.com/Arborist-sh/graft">GitHub</a><a href="#">Docs</a></div>
+    <span>Made in Redondo Beach</span>
+  </footer>
+</div>
+</body>
+</html>

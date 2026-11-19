@@ -1,0 +1,323 @@
+---
+// Landing page for arborist.sh — the home of Graft.
+// Direction: "Sakura editorial" (cream, graft green, serif display) with the
+// seed → sapling → fork diagram as the hero visual. Starlight does not touch this page.
+const version = '0.5.6';
+const codename = 'Sakura';
+const title = 'Graft — one golden macOS image for your dev box and your CI';
+const description =
+	'Graft bakes one golden Tart VM image from a .graft recipe, then uses it as your Mac dev box and as ephemeral GitHub Actions runners. Open source, MIT, Apple Silicon.';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href="https://arborist.sh/" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Graft" />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content="https://arborist.sh/" />
+		<meta name="theme-color" content="#f0ece0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+			<defs>
+				<path
+					id="petal"
+					d="M0 0 C -7 -5 -8 -15 -3.5 -20 C -2 -22 -0.8 -19 0 -20.5 C 0.8 -19 2 -22 3.5 -20 C 8 -15 7 -5 0 0 Z"
+				></path>
+				<g id="blossom">
+					<g fill="#ffc2d6" stroke="#f29ab8" stroke-width="1">
+						<use href="#petal"></use>
+						<use href="#petal" transform="rotate(72)"></use>
+						<use href="#petal" transform="rotate(144)"></use>
+						<use href="#petal" transform="rotate(216)"></use>
+						<use href="#petal" transform="rotate(288)"></use>
+					</g>
+					<circle r="2.6" fill="#f6c463"></circle>
+				</g>
+				<symbol id="mark" viewBox="0 0 100 100">
+					<line x1="40" y1="92" x2="40" y2="33" stroke="currentColor" stroke-width="7" stroke-linecap="round"></line>
+					<path d="M40 58 C40 45 58 45 70 40" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"></path>
+					<circle cx="40" cy="58" r="4.5" fill="currentColor"></circle>
+					<circle cx="72" cy="40" r="7.5" fill="currentColor"></circle>
+					<path d="M40 35 Q29 19 50 12 Q49 31 40 35 Z" fill="currentColor"></path>
+				</symbol>
+			</defs>
+		</svg>
+
+		<div class="wrap">
+			<nav>
+				<a class="name" href="/"><svg class="navmark" aria-hidden="true"><use href="#mark"></use></svg>Graft</a>
+				<span class="links">
+					<a href="/docs/getting-started/">Docs</a>
+					<a href="/docs/desktop-app/">Desktop app</a>
+					<a href="https://github.com/Arborist-sh/graft">GitHub</a>
+				</span>
+			</nav>
+
+			<header class="hero">
+				<span class="blossom" style="right:6%;top:40px;width:44px;height:44px;transform:rotate(18deg)"><svg viewBox="-24 -24 48 48"><use href="#blossom"></use></svg></span>
+				<span class="blossom" style="right:19%;top:210px;width:26px;height:26px;transform:rotate(-34deg)"><svg viewBox="-24 -24 48 48"><use href="#blossom"></use></svg></span>
+				<span class="blossom" style="right:3%;top:360px;width:34px;height:34px;transform:rotate(52deg)"><svg viewBox="-24 -24 48 48"><use href="#blossom"></use></svg></span>
+				<span class="blossom" style="right:30%;top:90px;width:18px;height:18px;transform:rotate(8deg)"><svg viewBox="-24 -24 48 48"><use href="#blossom"></use></svg></span>
+
+				<svg class="mark" aria-label="Graft mark"><use href="#mark"></use></svg>
+				<div class="pill">v{version} · {codename}</div>
+				<h1>One image.<br />Your Mac <em>and</em> your CI.</h1>
+				<p class="lede">
+					Graft bakes one golden macOS VM from a recipe, then uses that same image two ways: a dev box you shell
+					into, and ephemeral GitHub Actions runners. <b>Works on my machine</b> stops being a thing. Open source,
+					MIT, Apple Silicon.
+				</p>
+
+				<pre class="install"><span class="c"># one-time</span>
+<span class="p">$ </span>brew install cirruslabs/cli/tart
+<span class="p">$ </span>brew install arborist-sh/tap/graft</pre>
+				<p class="small">
+					Prefer a window? <code>brew install --cask arborist-sh/tap/graft-app</code> installs the desktop app and the
+					CLI.
+				</p>
+			</header>
+
+			<section class="diagram-section" aria-labelledby="diagram-heading">
+				<p class="eyebrow">How it grows</p>
+				<h2 id="diagram-heading">Bake the sapling once. Use it everywhere.</h2>
+
+				<div class="diagram">
+					<svg
+						viewBox="0 0 1200 540"
+						role="img"
+						aria-label="A .graft seed file grows one golden sapling image. The image feeds a dev box via graft nest and ephemeral CI runners via graft arborist tend."
+					>
+						<defs>
+							<marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 1 L10 5 L0 9 Z" fill="#15613a"></path></marker>
+							<marker id="ahs" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 L10 5 L0 9 Z" fill="#5a574f"></path></marker>
+						</defs>
+
+						<g class="label" font-size="13" fill="#5a574f" letter-spacing=".08em">
+							<text x="30" y="150">01 · SEED</text>
+							<text x="300" y="150">02 · SAPLING</text>
+							<text x="760" y="40">03 · USE IT TWICE</text>
+						</g>
+
+						<!-- seed file -->
+						<g>
+							<path d="M30 170 h88 l32 32 v118 a6 6 0 0 1 -6 6 h-114 a6 6 0 0 1 -6 -6 v-144 a6 6 0 0 1 6 -6 z" fill="#fbfaf5" stroke="#1c1c1e" stroke-width="2"></path>
+							<path d="M118 170 v32 h32" fill="none" stroke="#1c1c1e" stroke-width="2"></path>
+							<g stroke="#15613a" stroke-width="3" stroke-linecap="round">
+								<line x1="46" y1="232" x2="112" y2="232"></line>
+								<line x1="60" y1="256" x2="130" y2="256"></line>
+								<line x1="60" y1="280" x2="102" y2="280"></line>
+							</g>
+							<text class="mono" x="24" y="352" font-size="16" fill="#1c1c1e" font-weight="500">.graft</text>
+							<text class="mono" x="24" y="374" font-size="12.5" fill="#5a574f">declarative recipe</text>
+						</g>
+
+						<!-- seed -> sapling -->
+						<line x1="166" y1="260" x2="290" y2="260" stroke="#15613a" stroke-width="2.5" marker-end="url(#ah)"></line>
+						<text class="mono" x="228" y="246" font-size="13" fill="#15613a" text-anchor="middle">sapling grow</text>
+
+						<!-- sapling node -->
+						<rect x="300" y="180" width="320" height="160" rx="18" fill="#e3eee6" stroke="#15613a" stroke-width="3"></rect>
+						<g transform="translate(332 202) scale(.5)" color="#15613a" fill="none">
+							<line x1="40" y1="92" x2="40" y2="33" stroke="currentColor" stroke-width="7" stroke-linecap="round"></line>
+							<path d="M40 58 C40 45 58 45 70 40" stroke="currentColor" stroke-width="7" stroke-linecap="round"></path>
+							<circle cx="40" cy="58" r="4.5" fill="currentColor"></circle>
+							<circle cx="72" cy="40" r="7.5" fill="currentColor"></circle>
+							<path d="M40 35 Q29 19 50 12 Q49 31 40 35 Z" fill="currentColor"></path>
+						</g>
+						<text class="mono" x="460" y="236" font-size="19" fill="#1c1c1e" font-weight="500">one golden image</text>
+						<text class="mono" x="460" y="258" font-size="12.5" fill="#5a574f">(a Tart VM)</text>
+						<line x1="324" y1="280" x2="596" y2="280" stroke="#15613a" stroke-opacity=".3"></line>
+						<text class="mono" x="460" y="308" font-size="13.5" fill="#15613a" text-anchor="middle">xcode · node · pods · ccache</text>
+
+						<!-- branches -->
+						<path d="M620 240 C700 240 700 130 800 130" fill="none" stroke="#15613a" stroke-width="2.5" marker-end="url(#ah)"></path>
+						<path d="M620 280 C700 280 700 400 800 400" fill="none" stroke="#15613a" stroke-width="2.5" marker-end="url(#ah)"></path>
+
+						<!-- laptop -->
+						<g transform="translate(820 76)">
+							<rect x="14" y="0" width="112" height="72" rx="6" fill="#fbfaf5" stroke="#1c1c1e" stroke-width="2"></rect>
+							<text class="mono" x="26" y="30" font-size="12" fill="#15613a">$ graft nest</text>
+							<text class="mono" x="26" y="50" font-size="12" fill="#5a574f">▍</text>
+							<path d="M0 78 h140 l-8 12 h-124 z" fill="#fbfaf5" stroke="#1c1c1e" stroke-width="2" stroke-linejoin="round"></path>
+						</g>
+						<text class="mono" x="990" y="124" font-size="16" fill="#1c1c1e" font-weight="500">graft nest</text>
+						<text class="mono" x="990" y="146" font-size="12.5" fill="#5a574f">your dev box</text>
+						<text class="mono" x="990" y="166" font-size="12.5" fill="#5a574f">shell in, or open VS Code</text>
+
+						<!-- stacked VMs -->
+						<g transform="translate(820 330)">
+							<rect x="16" y="0" width="108" height="30" rx="5" fill="#fbfaf5" stroke="#1c1c1e" stroke-opacity=".35" stroke-width="2" stroke-dasharray="5 4"></rect>
+							<rect x="8" y="22" width="108" height="30" rx="5" fill="#fbfaf5" stroke="#1c1c1e" stroke-opacity=".6" stroke-width="2"></rect>
+							<rect x="0" y="44" width="108" height="30" rx="5" fill="#fbfaf5" stroke="#15613a" stroke-width="2.5"></rect>
+							<circle cx="14" cy="59" r="4" fill="#15613a"></circle>
+							<line x1="28" y1="59" x2="84" y2="59" stroke="#15613a" stroke-width="3" stroke-linecap="round"></line>
+						</g>
+						<text class="mono" x="990" y="376" font-size="16" fill="#1c1c1e" font-weight="500">graft arborist tend</text>
+						<text class="mono" x="990" y="398" font-size="12.5" fill="#5a574f">ephemeral runners</text>
+						<text class="mono" x="990" y="418" font-size="12.5" fill="#15613a">boot → one job → destroy</text>
+
+						<!-- APFS note -->
+						<path d="M460 340 V430" stroke="#5a574f" stroke-width="1.8" stroke-dasharray="5 5" fill="none" marker-end="url(#ahs)"></path>
+						<g transform="translate(300 438)">
+							<rect width="320" height="62" rx="8" fill="#fbfaf5" stroke="#5a574f" stroke-width="1.5" stroke-dasharray="5 4"></rect>
+							<text class="mono" x="160" y="27" font-size="14" fill="#1c1c1e" text-anchor="middle" font-weight="500">APFS copy-on-write</text>
+							<text class="mono" x="160" y="46" font-size="12.5" fill="#5a574f" text-anchor="middle">clones are free</text>
+						</g>
+					</svg>
+				</div>
+				<p class="cap">Same image on both branches. The caches are baked in, so every runner and every dev box starts warm.</p>
+
+				<ul class="facts">
+					<li><b>MIT, free CLI</b><span>open source, no account</span></li>
+					<li><b>Apple Silicon · Tart</b><span>native macOS VMs</span></li>
+					<li><b>Multi-host via Orchard</b><span>run a fleet of Macs</span></li>
+				</ul>
+			</section>
+
+			<section class="how" aria-labelledby="how-heading">
+				<p class="eyebrow">Three verbs</p>
+				<h2 id="how-heading">Write the seed once. Grow it once. Use it everywhere.</h2>
+				<div class="cols">
+					<article>
+						<h3>01 · seed</h3>
+						<p>
+							A <b>.graft</b> file is YAML with declarative toolchain fields: a base image, the versions to install, the
+							repos to pre-warm. <code>graft sapling grow</code> bakes it into a golden image.
+						</p>
+						<pre>name: ios-fastlane
+from: ghcr.io/cirruslabs/macos-tahoe-xcode
+ruby: "3.3.5"
+gems: [fastlane]</pre>
+						<a class="more" href="/docs/recipes/">Recipe reference →</a>
+					</article>
+					<article>
+						<h3>02 · nest</h3>
+						<p>
+							<b>graft nest</b> clones the image into a dev box. Shell in, or open it in VS Code over Remote-SSH.
+							Codespaces, for native macOS and iOS.
+						</p>
+						<pre>$ graft nest your-org/app --code</pre>
+						<a class="more" href="/docs/nest/">Dev boxes →</a>
+					</article>
+					<article>
+						<h3>03 · tend</h3>
+						<p>
+							<b>graft arborist tend</b> boots a fresh clone per GitHub Actions job as a JIT runner, runs exactly one
+							job, then destroys it. No drift, no leftover secrets.
+						</p>
+						<pre>$ graft arborist tend</pre>
+						<a class="more" href="/docs/runners/">Ephemeral runners →</a>
+					</article>
+				</div>
+				<p class="roadmap">A hosted fleet control plane is on the roadmap. For now, multi-host fleets run through Orchard.</p>
+			</section>
+
+			<footer>
+				<div class="l">
+					<span>MIT licensed</span>
+					<a href="https://github.com/Arborist-sh/graft">GitHub</a>
+					<a href="/docs/getting-started/">Docs</a>
+					<a href="https://github.com/Arborist-sh/graft/releases">Releases</a>
+				</div>
+				<span>Made in Redondo Beach</span>
+			</footer>
+		</div>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--cream: #f0ece0;
+		--paper: #f8f6ef;
+		--ink: #1c1c1e;
+		--muted: #5a574f;
+		--green: #15613a;
+		--green-soft: #e3eee6;
+		--rule: rgba(28, 28, 30, 0.18);
+		--serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+		--sans: -apple-system, BlinkMacSystemFont, 'Avenir Next', 'Segoe UI', Helvetica, Arial, sans-serif;
+		--mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+	}
+	* { box-sizing: border-box; }
+	html { background: var(--cream); }
+	body {
+		margin: 0;
+		color: var(--ink);
+		font: 18px/1.65 var(--sans);
+		background: linear-gradient(var(--paper), var(--cream) 70%);
+		-webkit-font-smoothing: antialiased;
+	}
+	.wrap { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+	a { color: inherit; text-decoration-color: var(--rule); text-underline-offset: 4px; }
+	a:hover { color: var(--green); text-decoration-color: var(--green); }
+	code { font-family: var(--mono); font-size: 0.85em; }
+
+	nav { padding: 32px 0; display: flex; justify-content: space-between; align-items: center; font-size: 15px; color: var(--muted); }
+	nav .name { font-family: var(--serif); font-size: 21px; color: var(--ink); letter-spacing: 0.01em; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; }
+	nav .navmark { width: 22px; height: 22px; color: var(--green); }
+	nav .links { display: flex; gap: 28px; }
+
+	.hero { position: relative; padding: 64px 0 96px; }
+	.mark { width: 120px; height: 120px; color: var(--green); display: block; margin-bottom: 36px; }
+	.pill { display: inline-block; font-size: 13px; letter-spacing: 0.06em; padding: 4px 14px; border: 1px solid var(--green); color: var(--green); border-radius: 99px; margin-bottom: 28px; font-family: var(--mono); }
+	h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(42px, 7.2vw, 92px); line-height: 1.02; letter-spacing: -0.02em; margin: 0 0 32px; max-width: 12.5em; font-variation-settings: 'opsz' 144; }
+	h1 em { font-style: italic; color: var(--green); }
+	.lede { font-size: clamp(18px, 2vw, 22px); max-width: 34em; color: var(--muted); margin: 0 0 40px; }
+	.lede b { color: var(--ink); font-weight: 500; }
+	.install { margin: 0; max-width: 40em; background: var(--ink); color: #e8efe9; border-radius: 10px; padding: 18px 22px; font-family: var(--mono); font-size: 15px; line-height: 1.6; overflow-x: auto; white-space: pre; }
+	.install .p { color: #6fbf8f; user-select: none; }
+	.install .c { color: #8a9890; }
+	.small { font-size: 14px; color: var(--muted); margin: 14px 0 0; }
+	.blossom { position: absolute; pointer-events: none; opacity: 0.85; }
+	.blossom svg { display: block; width: 100%; height: 100%; }
+
+	section { padding: 88px 0; border-top: 1px solid var(--rule); }
+	.eyebrow { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--green); margin: 0 0 12px; }
+	h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 4vw, 46px); line-height: 1.12; letter-spacing: -0.01em; margin: 0 0 48px; max-width: 18em; }
+
+	.diagram { border: 1px solid var(--rule); border-radius: 14px; padding: 14px; overflow-x: auto; background: rgba(251, 250, 245, 0.6); }
+	.diagram svg { display: block; width: 100%; min-width: 760px; height: auto; }
+	.diagram text { font-family: var(--mono); }
+	.cap { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--muted); margin: 18px 0 0; }
+	.facts { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 40px; }
+	.facts li { border-top: 1px solid var(--ink); padding-top: 16px; }
+	.facts b { display: block; font-weight: 500; font-size: 17px; }
+	.facts span { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+
+	.cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 40px; }
+	.cols article { border-top: 1px solid var(--ink); padding-top: 20px; display: flex; flex-direction: column; }
+	.cols h3 { margin: 0 0 14px; font-family: var(--mono); font-weight: 400; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); }
+	.cols p { margin: 0; font-size: 17px; color: var(--muted); }
+	.cols p b { color: var(--ink); font-weight: 500; }
+	.cols pre { font-family: var(--mono); font-size: 13px; line-height: 1.55; background: var(--green-soft); border-radius: 8px; padding: 12px 14px; margin: 18px 0 0; color: var(--ink); overflow-x: auto; }
+	.cols .more { margin-top: auto; padding-top: 16px; font-size: 15px; color: var(--green); text-decoration: none; }
+	.cols .more:hover { text-decoration: underline; }
+	.roadmap { margin: 64px 0 0; font-style: italic; font-family: var(--serif); color: var(--muted); font-size: 18px; }
+
+	footer { border-top: 1px solid var(--rule); padding: 36px 0 56px; font-size: 14px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; }
+	footer .l { display: flex; gap: 28px; flex-wrap: wrap; }
+
+	@media (max-width: 800px) {
+		.cols, .facts { grid-template-columns: 1fr; gap: 32px; }
+		.hero { padding: 32px 0 72px; }
+		.mark { width: 96px; height: 96px; margin-bottom: 28px; }
+		section { padding: 64px 0; }
+		nav .links { gap: 18px; }
+		.blossom { display: none; }
+		.diagram { margin: 0 -28px; border-radius: 0; border-left: 0; border-right: 0; }
+	}
+</style>

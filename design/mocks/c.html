@@ -1,0 +1,216 @@
+<!-- Direction C: "Blueprint, diagram-led". Light, cool, graph-paper grid; the hero diagram IS the pitch.
+     Fonts: Inter (text) + IBM Plex Mono (labels). Palette departs from the banner: cool white + slate; only graft green #15613a kept. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Graft — one image, your Mac and your CI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#14201a; --slate:#5b6b74; --green:#15613a; --green-soft:#e6f1ea;
+    --line:rgba(20,32,26,.06); --rule:#dfe5e8; --paper:#fff;
+    --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --sans:Inter,system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{
+    font-family:var(--sans);color:var(--ink);background-color:var(--paper);
+    background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+    background-size:24px 24px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-family:var(--mono);font-size:13px;color:var(--slate)}
+  nav .brand{display:flex;align-items:center;gap:10px;color:var(--green);font-family:var(--sans);font-weight:700;font-size:18px;letter-spacing:-.01em}
+  nav .brand svg{width:26px;height:26px}
+  nav .links{display:flex;gap:22px}
+  nav a{color:inherit;text-decoration:none} nav a:hover{color:var(--green)}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--green)}
+  header.hero{text-align:center;padding:56px 0 20px}
+  h1{font-size:clamp(34px,5.2vw,60px);line-height:1.05;letter-spacing:-.035em;font-weight:700;margin:14px auto 18px;max-width:14em}
+  .lede{max-width:40em;margin:0 auto;color:var(--slate);font-size:clamp(16px,1.6vw,19px)}
+  .lede code{font-family:var(--mono);font-size:.88em;color:var(--ink);background:var(--green-soft);padding:1px 6px;border-radius:4px}
+  .diagram{margin:36px auto 0;background:rgba(255,255,255,.82);border:1px solid var(--rule);border-radius:12px;padding:12px;overflow-x:auto}
+  .diagram svg{display:block;width:100%;min-width:760px;height:auto}
+  .diagram text{font-family:var(--mono)}
+  .cap{font-family:var(--mono);font-size:12px;color:var(--slate);margin-top:10px;text-align:center}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);margin:40px 0 0;border:1px solid var(--rule);border-radius:10px;background:rgba(255,255,255,.9);overflow:hidden}
+  .facts div{padding:18px 22px;font-family:var(--mono);font-size:14px;border-left:1px solid var(--rule)}
+  .facts div:first-child{border-left:0}
+  .facts b{display:block;font-family:var(--sans);font-size:15px;font-weight:600;margin-bottom:2px}
+  .facts span{color:var(--slate);font-size:12.5px}
+  .install{margin:28px auto 0;max-width:640px;background:var(--ink);color:#e8efe9;border-radius:10px;padding:18px 22px;font-family:var(--mono);font-size:14px;text-align:left;overflow-x:auto;white-space:pre}
+  .install .p{color:#6fbf8f;user-select:none} .install .c{color:#7d8b83}
+  .more{font-family:var(--mono);font-size:13px;color:var(--slate);text-align:center;margin-top:14px}
+  .more a{color:var(--green)}
+  section.how{margin-top:96px;padding-top:40px;border-top:1px solid var(--rule)}
+  section.how h2{font-size:28px;letter-spacing:-.02em;margin:8px 0 28px}
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--rule);background:rgba(255,255,255,.92);border-radius:10px;overflow:hidden}
+  .cols article{padding:24px;border-left:1px solid var(--rule)}
+  .cols article:first-child{border-left:0}
+  .cols h3{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--green);margin-bottom:10px}
+  .cols p{font-size:15px;color:var(--slate)}
+  .cols p b{color:var(--ink);font-weight:600}
+  .cols pre{font-family:var(--mono);font-size:12.5px;background:#f3f6f7;border:1px solid var(--rule);border-radius:6px;padding:10px 12px;margin-top:14px;color:var(--ink);overflow-x:auto}
+  .quiet{margin-top:22px;font-size:14px;color:var(--slate);text-align:center}
+  footer{margin-top:80px;border-top:1px solid var(--rule);background:rgba(255,255,255,.9)}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;padding:20px 24px;font-family:var(--mono);font-size:12.5px;color:var(--slate)}
+  footer a{color:inherit;text-decoration:none} footer a:hover{color:var(--green)}
+  @media (max-width:760px){
+    nav .links a:not(:last-child){display:none}
+    .facts,.cols{grid-template-columns:1fr}
+    .facts div,.cols article{border-left:0;border-top:1px solid var(--rule)}
+    .facts div:first-child,.cols article:first-child{border-top:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="brand" href="#">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
+        <line x1="40" y1="92" x2="40" y2="33" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+        <path d="M40 58 C40 45 58 45 70 40" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="40" cy="58" r="4.5" fill="currentColor"/><circle cx="72" cy="40" r="7.5" fill="currentColor"/>
+        <path d="M40 35 Q29 19 50 12 Q49 31 40 35 Z" fill="currentColor"/>
+      </svg>Graft</a>
+    <div class="links"><a href="#how">how it works</a><a href="#">docs</a><a href="https://github.com/Arborist-sh/graft">github</a></div>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">v0.5.6 · Sakura · MIT</div>
+    <h1>One image. Your Mac and your CI.</h1>
+    <p class="lede">Graft bakes one golden macOS VM from a <code>.graft</code> recipe, then uses that same image as your dev box and as your GitHub Actions runners.</p>
+
+    <div class="diagram">
+      <svg viewBox="0 0 1200 540" role="img" aria-label="A .graft seed file builds one golden sapling image. The image feeds a dev box via graft nest and ephemeral CI runners via graft arborist tend.">
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto-start-reverse"><path d="M0 1 L10 5 L0 9 Z" fill="#15613a"/></marker>
+          <marker id="ahs" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 L10 5 L0 9 Z" fill="#5b6b74"/></marker>
+        </defs>
+
+        <!-- step labels -->
+        <g font-size="13" fill="#5b6b74" letter-spacing=".08em">
+          <text x="30" y="150">01 · SEED</text>
+          <text x="300" y="150">02 · SAPLING</text>
+          <text x="760" y="40">03 · USE IT TWICE</text>
+        </g>
+
+        <!-- seed file -->
+        <g>
+          <path d="M30 170 h88 l32 32 v118 a6 6 0 0 1 -6 6 h-114 a6 6 0 0 1 -6 -6 v-144 a6 6 0 0 1 6 -6 z" fill="#fff" stroke="#14201a" stroke-width="2"/>
+          <path d="M118 170 v32 h32" fill="none" stroke="#14201a" stroke-width="2"/>
+          <g stroke="#15613a" stroke-width="3" stroke-linecap="round">
+            <line x1="46" y1="232" x2="112" y2="232"/><line x1="60" y1="256" x2="130" y2="256"/><line x1="60" y1="280" x2="102" y2="280"/>
+          </g>
+          <text x="24" y="352" font-size="16" fill="#14201a" font-weight="500">.graft</text>
+          <text x="24" y="374" font-size="12.5" fill="#5b6b74">declarative recipe</text>
+        </g>
+
+        <!-- seed -> sapling -->
+        <line x1="166" y1="260" x2="290" y2="260" stroke="#15613a" stroke-width="2.5" marker-end="url(#ah)"/>
+        <text x="228" y="246" font-size="13" fill="#15613a" text-anchor="middle">sapling grow</text>
+
+        <!-- sapling node -->
+        <rect x="300" y="180" width="320" height="160" rx="18" fill="#e6f1ea" stroke="#15613a" stroke-width="3"/>
+        <g transform="translate(332 202) scale(.5)" color="#15613a" fill="none">
+          <line x1="40" y1="92" x2="40" y2="33" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+          <path d="M40 58 C40 45 58 45 70 40" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+          <circle cx="40" cy="58" r="4.5" fill="currentColor"/><circle cx="72" cy="40" r="7.5" fill="currentColor"/>
+          <path d="M40 35 Q29 19 50 12 Q49 31 40 35 Z" fill="currentColor"/>
+        </g>
+        <text x="460" y="236" font-size="19" fill="#14201a" font-weight="500">one golden image</text>
+        <text x="460" y="258" font-size="12.5" fill="#5b6b74">(a Tart VM)</text>
+        <line x1="324" y1="280" x2="596" y2="280" stroke="#15613a" stroke-opacity=".3"/>
+        <text x="460" y="308" font-size="13.5" fill="#15613a" text-anchor="middle">golden image · xcode · node · pods · ccache</text>
+
+        <!-- branch up: nest -->
+        <path d="M620 240 C700 240 700 130 800 130" fill="none" stroke="#15613a" stroke-width="2.5" marker-end="url(#ah)"/>
+        <!-- branch down: arborist -->
+        <path d="M620 280 C700 280 700 400 800 400" fill="none" stroke="#15613a" stroke-width="2.5" marker-end="url(#ah)"/>
+
+        <!-- laptop -->
+        <g transform="translate(820 76)">
+          <rect x="14" y="0" width="112" height="72" rx="6" fill="#fff" stroke="#14201a" stroke-width="2"/>
+          <text x="26" y="30" font-size="12" fill="#15613a">$ graft nest</text>
+          <text x="26" y="50" font-size="12" fill="#5b6b74">▍</text>
+          <path d="M0 78 h140 l-8 12 h-124 z" fill="#fff" stroke="#14201a" stroke-width="2" stroke-linejoin="round"/>
+        </g>
+        <text x="990" y="124" font-size="16" fill="#14201a" font-weight="500">graft nest</text>
+        <text x="990" y="146" font-size="12.5" fill="#5b6b74">your dev box</text>
+        <text x="990" y="166" font-size="12.5" fill="#5b6b74">shell in or Remote-SSH</text>
+
+        <!-- stacked VMs -->
+        <g transform="translate(820 330)">
+          <rect x="16" y="0" width="108" height="30" rx="5" fill="#fff" stroke="#14201a" stroke-opacity=".35" stroke-width="2" stroke-dasharray="5 4"/>
+          <rect x="8" y="22" width="108" height="30" rx="5" fill="#fff" stroke="#14201a" stroke-opacity=".6" stroke-width="2"/>
+          <rect x="0" y="44" width="108" height="30" rx="5" fill="#fff" stroke="#15613a" stroke-width="2.5"/>
+          <circle cx="14" cy="59" r="4" fill="#15613a"/>
+          <line x1="28" y1="59" x2="84" y2="59" stroke="#15613a" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <text x="990" y="376" font-size="16" fill="#14201a" font-weight="500">graft arborist tend</text>
+        <text x="990" y="398" font-size="12.5" fill="#5b6b74">ephemeral runners</text>
+        <text x="990" y="418" font-size="12.5" fill="#15613a">boot → one job → destroy</text>
+
+        <!-- dashed note: APFS -->
+        <path d="M460 340 V430" stroke="#5b6b74" stroke-width="1.8" stroke-dasharray="5 5" fill="none" marker-end="url(#ahs)"/>
+        <g transform="translate(300 438)">
+          <rect width="320" height="62" rx="8" fill="#fff" stroke="#5b6b74" stroke-width="1.5" stroke-dasharray="5 4"/>
+          <text x="160" y="27" font-size="14" fill="#14201a" text-anchor="middle" font-weight="500">APFS copy-on-write</text>
+          <text x="160" y="46" font-size="12.5" fill="#5b6b74" text-anchor="middle">clones are free</text>
+        </g>
+      </svg>
+    </div>
+    <p class="cap">Same image on both branches. Caches are baked in, so “works on my machine” stops being a category.</p>
+
+    <div class="facts">
+      <div><b>MIT, free CLI</b><span>open source, no account</span></div>
+      <div><b>Apple Silicon · Tart</b><span>native macOS VMs</span></div>
+      <div><b>Multi-host via Orchard</b><span>run a fleet of Macs</span></div>
+    </div>
+
+    <pre class="install"><span class="c"># one-time</span>
+<span class="p">$ </span>brew install cirruslabs/cli/tart
+<span class="p">$ </span>brew install arborist-sh/tap/graft</pre>
+    <p class="more">desktop app: <code>brew install --cask arborist-sh/tap/graft-app</code> · <a href="https://github.com/Arborist-sh/graft">github.com/Arborist-sh/graft</a></p>
+  </header>
+
+  <section class="how" id="how">
+    <div class="eyebrow">How it works</div>
+    <h2>Write the seed once. Grow it once. Use it everywhere.</h2>
+    <div class="cols">
+      <article>
+        <h3>01 · seed</h3>
+        <p>A declarative <b>.graft</b> file is YAML with declarative toolchain fields: a base image, toolchain versions, the things to bake in.</p>
+        <pre>name: ios-fastlane
+from: ghcr.io/cirruslabs/macos-tahoe-xcode
+ruby: "3.3.5"
+gems: [fastlane]</pre>
+      </article>
+      <article>
+        <h3>02 · nest</h3>
+        <p><b>graft nest</b> clones the image into a dev box. Shell in, or open it in VS Code over Remote-SSH. Codespaces, for native macOS and iOS.</p>
+        <pre>$ graft nest</pre>
+      </article>
+      <article>
+        <h3>03 · tend</h3>
+        <p><b>graft arborist tend</b> boots a fresh clone per GitHub Actions job as a JIT runner, runs exactly one job, then destroys it.</p>
+        <pre>$ graft arborist tend</pre>
+      </article>
+    </div>
+    <p class="quiet">A hosted fleet control plane is on the roadmap.</p>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>Graft v0.5.6 · Sakura · MIT</span>
+    <span><a href="https://github.com/Arborist-sh/graft">GitHub</a> &nbsp;·&nbsp; <a href="#">Docs</a> &nbsp;·&nbsp; <a href="#">Changelog</a></span>
+    <span>arborist.sh</span>
+  </div>
+</footer>
+</body>
+</html>
